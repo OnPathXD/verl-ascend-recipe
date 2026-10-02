@@ -91,7 +91,7 @@ LORA_ADAPTER_PATH=/path/to/qwen3_8b_adapter \
 TRAIN_FILE=/path/to/data/gsm8k/train.parquet \
 VAL_FILE=/path/to/data/gsm8k/test.parquet \
 TOTAL_TRAINING_STEPS=100 \
-bash /path/to/verl-ascend-recipe/lora/run_qwen3_8b_from_adapter_fsdp.sh
+bash /path/to/verl-ascend-recipe/grpo/lora/run_qwen3_8b_from_adapter_fsdp.sh
 ```
 
 4 卡复现命令：
@@ -107,7 +107,7 @@ PPO_MINI_BATCH_SIZE=32 \
 ROLLOUT_TP=1 \
 UPDATE_WEIGHTS_BUCKET_MEGABYTES=8 \
 TOTAL_TRAINING_STEPS=100 \
-bash /path/to/verl-ascend-recipe/lora/run_qwen3_8b_from_adapter_fsdp.sh
+bash /path/to/verl-ascend-recipe/grpo/lora/run_qwen3_8b_from_adapter_fsdp.sh
 ```
 
 额外 Hydra overrides 可直接追加在脚本命令末尾。控制台日志默认写入 `$PWD/logs/training_<timestamp>.log`，可通过 `LOG_DIR` 或 `LOG_FILE` 覆盖。
@@ -137,7 +137,7 @@ bash /path/to/verl-ascend-recipe/lora/run_qwen3_8b_from_adapter_fsdp.sh
 CHECKPOINT_DIR=/path/to/checkpoints/qwen3_8b_lora_from_adapter \
 SAVE_FREQ=20 \
 RESUME_MODE=auto \
-bash /path/to/verl-ascend-recipe/lora/run_qwen3_8b_from_adapter_fsdp.sh
+bash /path/to/verl-ascend-recipe/grpo/lora/run_qwen3_8b_from_adapter_fsdp.sh
 ```
 
 初始 adapter 由 `LORA_ADAPTER_PATH` 加载；恢复同一训练任务时，模型、optimizer、scheduler 与 RNG 状态由 `CHECKPOINT_DIR` 恢复。
